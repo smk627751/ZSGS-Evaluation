@@ -29,7 +29,7 @@ public class LexicographicalOrder {
 	public static void main(String[] args)
 	{
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter the number of str•ngs to be entered=");
+		System.out.println("Enter the number of strings to be entered=");
 		int n = sc.nextInt();
 		for(int i = 0; i < n; i++)
 		{
