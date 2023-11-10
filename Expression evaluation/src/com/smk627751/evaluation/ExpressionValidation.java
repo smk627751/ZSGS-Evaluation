@@ -32,7 +32,7 @@ public class ExpressionValidation {
 			else if(Operators.contains(ch+""))
 			{
 				if((i-1 > 0 && i+1 < str.length())
-						&& !(Character.isLetter(str.charAt(i-1)) && Character.isLetter(str.charAt(i+1))))
+						&& !(Character.isLetterOrDigit(str.charAt(i-1)) && Character.isLetterOrDigit(str.charAt(i+1))))
 				{
 					return false;
 				}
