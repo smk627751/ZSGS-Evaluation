@@ -3,46 +3,27 @@ package com.smk627751.spiraltriangle;
 public class SpiralTriangle {
 
 	public static void main(String[] args) {
-		int n = 3;
+		int n = 5;
 		int val = 1;
-		int dir = 0;
 		int[][] arr = new int[n][n];
 		int up = 0, down = arr.length-1, left = 0, right = arr.length - 1;
-		for(int i = 0; i < n; i++)
-		{
-			if(dir == 0)
-			{
-				int j = left;
-				for(; up < arr.length && left < arr.length; up++)
-				{
-					arr[up][j] = val++;
-					j++;
-				}
-				down--;
-				left++;
+		while(up < down||left<right) {
+			for(int i = up; i <= down; i++) {
+				arr[i][left+i] = val++;
 			}
-			
-			if(dir == 1)
-			{
-				for(;down >= 0; down--)
-				{
-					arr[down][right] = val++;
-				}
-				right--;
-				down++;
+			left++;
+			down--;
+			for(int i = down; i >= up; i--) {
+				arr[i][right] = val++;
 			}
-
-			if(dir == 2)
-			{
-				int j = right;
-				for(;j> 0; j --)
-				{
-					arr[down][j] = val++;
-				}
-				right--;
+			right--;
+			for(int i = right; i >= left; i--) {
+				if(i == left && up != 0)
+					break;
+				arr[up][i] = val++;
 			}
-			
-			dir = (dir+1)%3;
+			up++;
+			down--;
 		}
 		
 		for(int[] ar : arr)
