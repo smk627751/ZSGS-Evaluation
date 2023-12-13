@@ -7,7 +7,7 @@ public class ExpressionValidation {
 
 	public static boolean isValid(String str)
 	{
-		String Operators = "+-*/%";
+		String Operators = "+-*/%=";
 		String brackets = "()[]{}";
 		Stack <Character> stack = new Stack<>();
 		for(int i = 0; i < str.length(); i++)
@@ -25,17 +25,19 @@ public class ExpressionValidation {
 			{
 				stack.push('}');
 			}
-			else if(stack.isEmpty() || (brackets.contains(ch+"") && ch != stack.pop()))
-			{
-				return false;
-			}
 			else if(Operators.contains(ch+""))
 			{
 				if((i-1 > 0 && i+1 < str.length())
-						&& !(Character.isLetterOrDigit(str.charAt(i-1)) && Character.isLetterOrDigit(str.charAt(i+1))))
+						&& !(Character.isLetterOrDigit(str.charAt(i-1)) && 
+						Character.isLetterOrDigit(str.charAt(i+1))))
 				{
 					return false;
 				}
+			}
+			else if(brackets.contains(ch+""))
+			{
+				if(stack.isEmpty() || ch != stack.pop())
+				return false;
 			}
 		}
 		return stack.isEmpty();

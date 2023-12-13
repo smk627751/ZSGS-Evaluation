@@ -11,7 +11,7 @@ public class ZigZagPattern {
 		String str = sc.nextLine();
 		System.out.println("Number of rows: ");
 		int n = sc.nextInt();
-		char[][] arr = new char[n][str.length()];
+		char[][] arr = new char[n][str.length()/2+1];
 		int i = 0, j = 0;
 		int index = 0;
 		boolean down = false;

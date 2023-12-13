@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class JumbledNumber {
 	public static boolean isJumbled(int num)
 	{
+		if(num < 10) return false;
+		
 		int prev = 0;
 
 		while(num != 0)
